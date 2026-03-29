@@ -20,7 +20,7 @@ Graphics presets, quality sliders, performance toggles, saved profiles and share
 
 <br />
 
-[**Read the Docs**](https://docs.f5stud.io/docs/f5-boost) &nbsp;&nbsp;&middot;&nbsp;&nbsp; [**Join Discord**](https://dc.f5stud.io)
+[**Read the Docs**](https://docs.f5stud.io/docs/f5-boost/installation) &nbsp;&nbsp;&middot;&nbsp;&nbsp; [**Join Discord**](https://dc.f5stud.io)
 
 </div>
 
@@ -177,7 +177,7 @@ Encodes: graphics preset, performance mode, 4 slider values, and 6 toggle states
 
 <div align="center">
 
-<a href="https://docs.f5stud.io/docs/f5-boost"><img src="https://img.shields.io/badge/read_the_docs-docs.f5stud.io-f5a623?style=for-the-badge&labelColor=16161d&logoColor=white" alt="Documentation" height="35" /></a>
+<a href="https://docs.f5stud.io/docs/f5-boost/installation"><img src="https://img.shields.io/badge/read_the_docs-docs.f5stud.io-f5a623?style=for-the-badge&labelColor=16161d&logoColor=white" alt="Documentation" height="35" /></a>
 &nbsp;&nbsp;
 <a href="https://dc.f5stud.io"><img src="https://img.shields.io/badge/join-discord-5865F2?style=for-the-badge&labelColor=16161d&logoColor=white" alt="Discord" height="35" /></a>
 &nbsp;&nbsp;
