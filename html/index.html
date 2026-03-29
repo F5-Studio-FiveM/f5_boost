@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boost</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,400,0..1,0" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="notify-container" class="notify-container"></div>
+    <div id="tooltip" class="tooltip"></div>
+
+    <div class="screen-hints" id="screen-hints">
+        <div class="sh-item">
+            <span class="material-symbols-rounded sh-ico">mouse</span>
+            <span class="sh-text" data-locale-html="hint_freelook"></span>
+        </div>
+        <span class="sh-sep"></span>
+        <div class="sh-item">
+            <span class="material-symbols-rounded sh-ico">drag_pan</span>
+            <span class="sh-text" data-locale="hint_drag"></span>
+        </div>
+    </div>
+
+    <div id="app" class="app hidden">
+
+        <aside class="rail">
+            <button class="rail-btn active" data-tab="presets" data-locale-tip="tip_tab_presets">
+                <span class="material-symbols-rounded">tune</span>
+            </button>
+            <button class="rail-btn" data-tab="sliders" data-locale-tip="tip_tab_quality">
+                <span class="material-symbols-rounded">equalizer</span>
+            </button>
+            <button class="rail-btn" data-tab="toggles" data-locale-tip="tip_tab_toggles">
+                <span class="material-symbols-rounded">toggle_on</span>
+            </button>
+            <button class="rail-btn" data-tab="profiles" data-locale-tip="tip_tab_profiles">
+                <span class="material-symbols-rounded">bookmark</span>
+            </button>
+        </aside>
+
+        <div class="main">
+
+            <header class="head">
+                <div class="head-left">
+                    <img src="logo.png" class="logo-img" alt="Boost">
+                    <h1 class="logo-text">Boost</h1>
+                </div>
+                <div class="head-right">
+                    <div class="fps-badge" data-locale-tip="tip_fps">
+                        <span id="fps-value">0</span>
+                        <span class="fps-label" data-locale="fps_label"></span>
+                    </div>
+                    <button class="close-btn" id="close-btn" data-locale-tip="tip_close">
+                        <span class="material-symbols-rounded">close</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content">
+
+                <section class="view active" id="view-presets">
+                    <div class="section">
+                        <h2 class="section-label" data-locale="section_graphics_preset"></h2>
+                        <div class="chip-grid">
+                            <button class="chip" data-preset="ultra" data-locale="preset_ultra" data-locale-tip="tip_preset_ultra"></button>
+                            <button class="chip" data-preset="high" data-locale="preset_high" data-locale-tip="tip_preset_high"></button>
+                            <button class="chip active" data-preset="balanced" data-locale="preset_balanced" data-locale-tip="tip_preset_balanced"></button>
+                            <button class="chip" data-preset="medium" data-locale="preset_medium" data-locale-tip="tip_preset_medium"></button>
+                            <button class="chip" data-preset="low" data-locale="preset_low" data-locale-tip="tip_preset_low"></button>
+                            <button class="chip" data-preset="potato" data-locale="preset_potato" data-locale-tip="tip_preset_potato"></button>
+                            <button class="chip" data-preset="minimal" data-locale="preset_minimal" data-locale-tip="tip_preset_minimal"></button>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-label" data-locale="section_performance_mode"></h2>
+                        <div class="seg-control">
+                            <button class="seg" data-mode="quality" data-locale-tip="tip_mode_quality">
+                                <span class="seg-dot green"></span>
+                                <span data-locale="mode_quality"></span>
+                            </button>
+                            <button class="seg active" data-mode="balanced" data-locale-tip="tip_mode_balanced">
+                                <span class="seg-dot amber"></span>
+                                <span data-locale="mode_balanced"></span>
+                            </button>
+                            <button class="seg" data-mode="performance" data-locale-tip="tip_mode_performance">
+                                <span class="seg-dot red"></span>
+                                <span data-locale="mode_performance"></span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="view" id="view-sliders">
+                    <div class="section">
+                        <h2 class="section-label" data-locale="section_quality_controls"></h2>
+
+                        <div class="ctrl">
+                            <div class="ctrl-top">
+                                <span class="ctrl-label"><span class="material-symbols-rounded ctrl-ico">shadow</span><span data-locale="slider_shadows"></span></span>
+                                <output class="ctrl-val" data-suffix="%" id="val-shadowDistance">50</output>
+                            </div>
+                            <input type="range" class="range" id="slider-shadowDistance" data-setting="shadowDistance" min="0" max="100" value="50">
+                        </div>
+
+                        <div class="ctrl">
+                            <div class="ctrl-top">
+                                <span class="ctrl-label"><span class="material-symbols-rounded ctrl-ico">view_in_ar</span><span data-locale="slider_objects"></span></span>
+                                <output class="ctrl-val" data-suffix="%" id="val-objectQuality">50</output>
+                            </div>
+                            <input type="range" class="range" id="slider-objectQuality" data-setting="objectQuality" min="0" max="100" value="50">
+                        </div>
+
+                        <div class="ctrl">
+                            <div class="ctrl-top">
+                                <span class="ctrl-label"><span class="material-symbols-rounded ctrl-ico">person</span><span data-locale="slider_characters"></span></span>
+                                <output class="ctrl-val" data-suffix="%" id="val-characterQuality">50</output>
+                            </div>
+                            <input type="range" class="range" id="slider-characterQuality" data-setting="characterQuality" min="0" max="100" value="50">
+                        </div>
+
+                        <div class="ctrl">
+                            <div class="ctrl-top">
+                                <span class="ctrl-label"><span class="material-symbols-rounded ctrl-ico">directions_car</span><span data-locale="slider_vehicles"></span></span>
+                                <output class="ctrl-val" data-suffix="%" id="val-vehicleDistance">50</output>
+                            </div>
+                            <input type="range" class="range" id="slider-vehicleDistance" data-setting="vehicleDistance" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="view" id="view-toggles">
+                    <div class="section">
+                        <h2 class="section-label" data-locale="section_performance_toggles"></h2>
+
+                        <label class="opt">
+                            <div class="opt-left">
+                                <span class="material-symbols-rounded opt-ico">delete_sweep</span>
+                                <div><p class="opt-name" data-locale="toggle_clear_events"></p><p class="opt-sub" data-locale="toggle_clear_events_sub"></p></div>
+                            </div>
+                            <input type="checkbox" class="sr-only" id="toggle-toggleClearEvents" data-setting="toggleClearEvents">
+                            <span class="sw"></span>
+                        </label>
+
+                        <label class="opt">
+                            <div class="opt-left">
+                                <span class="material-symbols-rounded opt-ico">light_mode</span>
+                                <div><p class="opt-name" data-locale="toggle_light_reflections"></p><p class="opt-sub" data-locale="toggle_light_reflections_sub"></p></div>
+                            </div>
+                            <input type="checkbox" class="sr-only" id="toggle-toggleLightReflections" data-setting="toggleLightReflections" checked>
+                            <span class="sw"></span>
+                        </label>
+
+                        <label class="opt">
+                            <div class="opt-left">
+                                <span class="material-symbols-rounded opt-ico">water_drop</span>
+                                <div><p class="opt-name" data-locale="toggle_rain_wind"></p><p class="opt-sub" data-locale="toggle_rain_wind_sub"></p></div>
+                            </div>
+                            <input type="checkbox" class="sr-only" id="toggle-toggleRainWind" data-setting="toggleRainWind" checked>
+                            <span class="sw"></span>
+                        </label>
+
+                        <label class="opt">
+                            <div class="opt-left">
+                                <span class="material-symbols-rounded opt-ico">bloodtype</span>
+                                <div><p class="opt-name" data-locale="toggle_blood_stains"></p><p class="opt-sub" data-locale="toggle_blood_stains_sub"></p></div>
+                            </div>
+                            <input type="checkbox" class="sr-only" id="toggle-toggleBloodStains" data-setting="toggleBloodStains" checked>
+                            <span class="sw"></span>
+                        </label>
+
+                        <label class="opt">
+                            <div class="opt-left">
+                                <span class="material-symbols-rounded opt-ico">local_fire_department</span>
+                                <div><p class="opt-name" data-locale="toggle_fire_effects"></p><p class="opt-sub" data-locale="toggle_fire_effects_sub"></p></div>
+                            </div>
+                            <input type="checkbox" class="sr-only" id="toggle-toggleFireEffects" data-setting="toggleFireEffects" checked>
+                            <span class="sw"></span>
+                        </label>
+
+                        <label class="opt">
+                            <div class="opt-left">
+                                <span class="material-symbols-rounded opt-ico">groups</span>
+                                <div><p class="opt-name" data-locale="toggle_scenarios"></p><p class="opt-sub" data-locale="toggle_scenarios_sub"></p></div>
+                            </div>
+                            <input type="checkbox" class="sr-only" id="toggle-toggleScenarios" data-setting="toggleScenarios" checked>
+                            <span class="sw"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="view" id="view-profiles">
+                    <div class="section">
+                        <h2 class="section-label" data-locale="section_saved_profiles"></h2>
+                        <div id="profile-list" class="profile-list"></div>
+                        <div id="profile-empty" class="profile-empty">
+                            <span class="material-symbols-rounded profile-empty-ico">bookmark_border</span>
+                            <p class="profile-empty-text" data-locale="profile_empty"></p>
+                        </div>
+                    </div>
+                    <div class="section" id="profile-save-section">
+                        <h2 class="section-label" data-locale="section_save_current"></h2>
+                        <div class="profile-save-row">
+                            <input type="text" id="profile-name-input" class="profile-input" data-locale-placeholder="placeholder_profile_name" maxlength="30">
+                            <button id="profile-save-btn" class="profile-save-btn" data-locale-tip="tip_save_profile">
+                                <span class="material-symbols-rounded">save</span>
+                            </button>
+                        </div>
+                        <span class="profile-counter" id="profile-counter">0 / 5</span>
+                    </div>
+                    <div class="section">
+                        <h2 class="section-label" data-locale="section_share_code"></h2>
+                        <input type="text" id="profile-code-input" class="profile-input profile-code-input" data-locale-placeholder="placeholder_code" spellcheck="false">
+                        <div class="code-actions">
+                            <button id="profile-export-btn" class="code-btn" data-locale-tip="tip_export">
+                                <span class="material-symbols-rounded">content_copy</span>
+                                <span data-locale="btn_export"></span>
+                            </button>
+                            <button id="profile-import-btn" class="code-btn" data-locale-tip="tip_apply_code">
+                                <span class="material-symbols-rounded">check</span>
+                                <span data-locale="btn_apply"></span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <footer class="foot">
+                <button class="btn-reset" id="reset-btn" data-locale-tip="tip_reset">
+                    <span class="material-symbols-rounded">restart_alt</span>
+                    <span data-locale="btn_reset"></span>
+                </button>
+                <span class="foot-hint"><kbd id="toggle-key">F7</kbd> <span data-locale="footer_toggle"></span></span>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
