@@ -18,3 +18,7 @@ Config.ShowFPSCounter = true
 -- Disable GTA dispatch services (police/ambulance AI dispatch)
 -- Significant CPU savings, recommended for RP servers that handle this via script
 Config.DisableDispatch = true
+
+-- Check for updates on server start via GitHub Releases API
+Config.VersionCheck = true
+Config.GitHubRepo = 'F5-Studio-FiveM/f5_boost'

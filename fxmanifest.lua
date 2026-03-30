@@ -16,6 +16,7 @@ shared_scripts {
 }
 
 server_scripts {
+    'server/version_check.lua',
     'server/db.lua',
     'server/profiles.lua',
 }
